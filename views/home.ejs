@@ -1,0 +1,203 @@
+<%- include('partials/header') %>
+
+<style>
+    /* Hero Banner */
+    .hero-banner {
+        text-align: center;
+        border-radius: 12px;
+        margin-top: 10px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 15px rgba(49, 130, 206, 0.2);
+    }
+    .hero-banner h1 { margin: 0 0 10px 0; font-size: 2.5rem; }
+    .hero-banner p { margin: 0; font-size: 1.2rem; color: #ebf8ff; }
+
+    /* Slideshow Styles */
+    .slideshow-container {
+        display: none;
+        position: relative;
+        max-width: 100%;
+        max-height: 420px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .mySlides {
+        display: none;
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        animation: fadeEffect 1.5s;
+    }
+    @keyframes fadeEffect {
+        from {
+            opacity: 0.4;
+            transform: scale(1.03);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    #loader {
+        text-align: center;
+        padding: 60px 0;
+        font-family: Arial, sans-serif;
+        color: #fff;
+    }
+
+    .section-title {
+        color: #f7f7f7;
+        border-bottom: 2px solid #edf2f7;
+        padding-bottom: 10px;
+        margin-bottom: 26px;
+    }
+
+    /* Offers Dashboard */
+    .offers-grid {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+    .offer-card {
+        background: #f0f1ff;
+        border: 1px solid #feebc8;
+        border-radius: 8px;
+        padding: 20px;
+        flex: 1;
+        min-width: 280px;
+        position: relative;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .offer-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #c93c11;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .offer-card h3 { margin: 0 0 10px 0; color: #1892b8; font-size: 1.25rem; padding-right: 80px; }
+    .offer-card p { margin: 0; color: #1a202c; font-size: 0.95rem; line-height: 1.5; }
+
+    /* Catalog Grid Layout */
+    .home-catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+    .home-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #3b3e49;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        display: flex;
+        flex-direction: column;
+    }
+    .home-card img { width: 100%; height: 225px; object-fit: cover; background: #edf2f7; }
+    .home-card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; text-align: center; }
+    .home-card-body strong { font-size: 1.1rem; color: #2d3748; display: block; }
+
+    /* Responsive media query */
+    @media (max-width: 1024px) {
+        .home-catalog-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+        .home-catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+        .home-catalog-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<div class="full-page-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    
+    <header class="hero-banner">
+        <div id="loader">
+            <h2>Loading Gallery...</h2>
+            <p>Please wait while we fetch the HD images.</p>
+        </div>
+
+        <div class="slideshow-container" id="slideshow">
+            <img class="mySlides" src="/testimg/1.jpg" />
+            <img class="mySlides" src="/testimg/2.jpg" />
+            <img class="mySlides" src="/testimg/3.jpg" />
+            <img class="mySlides" src="/testimg/4.jpg" />
+            <img class="mySlides" src="/testimg/5.jpg" />
+            <img class="mySlides" src="/testimg/6.jpg" />
+            <img class="mySlides" src="/testimg/7.jpg" />
+            <img class="mySlides" src="/testimg/8.jpg" />
+            <img class="mySlides" src="/testimg/9.jpg" />
+            <img class="mySlides" src="/testimg/10.jpg" />
+        </div>
+    </header>
+
+    <section>
+        <h2 class="section-title">📦 Current Inventory Availability</h2>
+        <div class="home-catalog-grid">
+            <% products.forEach(product => { %>
+                <div class="home-card">
+                    <img src="<%= product.imagePath %>" alt="<%= product.name %>">
+                    <div class="home-card-body">
+                        <strong><%= product.name %></strong>
+                        <div class="price" style="font-size: 0.95rem; margin-bottom: 20px;">BDT. <%= product.price.toFixed(2) %></div>
+                        
+                        <form action="/cart/add" method="POST" style="margin-top: auto;">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                            <button type="submit" class="btn-add" style="color: white; border: none; padding: 16px 12px; border-radius: 6px; font-weight: 600; width: 100%; cursor: pointer;">Add to Sales Order</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">🔥 Active Special Promotions</h2>
+        <div class="offers-grid">
+            <% offers.forEach(offer => { %>
+                <div class="offer-card">
+                    <span class="offer-badge"><%= offer.badge %></span>
+                    <h3><%= offer.title %></h3>
+                    <p><%= offer.description %></p>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</div>
+<script>
+    var slideIndex = 0;    
+    function initSlideshow() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("slideshow").style.display = "block";
+        showSlides();
+    }
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        if (slides[slideIndex - 1]) {
+            slides[slideIndex - 1].style.display = "block";
+        }
+        setTimeout(showSlides, 3000);
+    }
+
+    window.addEventListener('DOMContentLoaded', initSlideshow);
+</script>
+
+<%- include('partials/footer') %>

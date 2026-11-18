@@ -1,0 +1,46 @@
+[
+  {
+    "saleId": "SALE-1781968190684-681",
+    "customerName": "Sajia",
+    "customerAddress": "Pathapath",
+    "productName": "Wrist Watch M-1",
+    "price": 1200,
+    "quantity": 1,
+    "totalAmount": 1200,
+    "imagePath": "/uploads/1781345720705.jpg",
+    "saleDate": "2026-06-20T15:09:50.691Z"
+  },
+  {
+    "saleId": "SALE-1781968602036-310",
+    "customerName": "Helal",
+    "customerAddress": "Gazipur",
+    "productName": "Wrist Watch M-3",
+    "price": 1280,
+    "quantity": 1,
+    "totalAmount": 1280,
+    "imagePath": "/uploads/1781169721922.webp",
+    "saleDate": "2026-06-20T15:16:42.036Z"
+  },
+  {
+    "saleId": "SALE-1781968602036-303",
+    "customerName": "Helal",
+    "customerAddress": "Gazipur",
+    "productName": "Wrist Watch M-11",
+    "price": 1450,
+    "quantity": 2,
+    "totalAmount": 2900,
+    "imagePath": "/uploads/1781328443082.webp",
+    "saleDate": "2026-06-20T15:16:42.036Z"
+  },
+  {
+    "saleId": "SALE-1781968602036-758",
+    "customerName": "Helal",
+    "customerAddress": "Gazipur",
+    "productName": "Wrist Watch F-3",
+    "price": 1450,
+    "quantity": 2,
+    "totalAmount": 2900,
+    "imagePath": "/uploads/1781345572184.webp",
+    "saleDate": "2026-06-20T15:16:42.036Z"
+  }
+]

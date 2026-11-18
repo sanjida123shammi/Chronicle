@@ -1,0 +1,14 @@
+[
+	{
+		"id": "USR-1781166664843",
+		"username": "Shammi",
+		"password": "123456",
+		"role": "authorized_cashier"
+	},
+	{
+		"id": "USR-1781166806576",
+		"username": "admin",
+		"password": "123456",
+		"role": "admin"
+	}
+]

@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+
+<div style="display: flex; align-items: center; justify-content: center; min-height: 70vh; font-family: system-ui, -apple-system, sans-serif;">
+    <div style="background: #ffffff; margin: 20px 0; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05); max-width: 400px; width: 100%; border: 1px solid #e2e8f0;">
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div style="font-size: 3rem; margin-bottom: 10px;">📝</div>
+            <h2 style="margin: 0; color: #1a202c; font-size: 1.6rem; font-weight: 700;">Create Operator Account</h2>
+            <p style="color: #718096; margin-top: 6px; font-size: 0.95rem;">Register a new profile in the local Chronicle database.</p>
+        </div>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div style="background: #fff5f5; border: 1px solid #fed7d7; color: #c53030; padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; text-align: center; font-weight: 500;">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <% if (typeof success !== 'undefined' && success) { %>
+            <div style="background: #f0fff4; border: 1px solid #c6f6d5; color: #22543d; padding: 12px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; text-align: center; font-weight: 500;">
+                <%= success %>
+            </div>
+        <% } %>
+
+        <form action="/register" method="POST">
+            <div style="margin-bottom: 18px;">
+                <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #4a5568; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Operator Username</label>
+                <input type="text" name="username" placeholder="e.g., john_doe" required style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e0; border-radius: 8px; font-size: 0.95rem; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='#3182ce'">
+            </div>
+
+            <div style="margin-bottom: 24px;">
+                <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #4a5568; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Secure Access Pin / Password</label>
+                <input type="password" name="password" placeholder="••••••••" required style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e0; border-radius: 8px; font-size: 0.95rem; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='#3182ce'">
+            </div>
+
+            <button type="submit" style="background: linear-gradient(135deg, #1a202c 0%, #38a169 100%); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; cursor: pointer; box-shadow: 0 4px 12px rgba(72, 187, 120, 0.25); margin-bottom: 16px;">
+                Register Operator
+            </button>
+        </form>
+
+        <div style="text-align: center; font-size: 0.9rem;">
+            <a href="/login" style="color: #3182ce; text-decoration: none; font-weight: 500;">Back to Sign In</a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,174 @@
+<%- include('partials/header') %>
+
+<div
+	style="
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 75vh;
+		font-family:
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			&quot;Segoe UI&quot;,
+			Roboto,
+			sans-serif;
+		background-color: #f7fafc;
+		padding: 20px;
+	"
+>
+	<div
+		style="
+			background: #ffffff;
+			padding: 45px 40px;
+			border-radius: 16px;
+			box-shadow:
+				0 20px 25px -5px rgba(0, 0, 0, 0.05),
+				0 10px 10px -5px rgba(0, 0, 0, 0.04);
+			max-width: 480px;
+			width: 100%;
+			border: 1px solid #e2e8f0;
+			text-align: center;
+		"
+	>
+		<div
+			style="
+				margin: 0 auto 24px auto;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 80px;
+				height: 80px;
+				background: #f0fff4;
+				border-radius: 50%;
+				border: 3px solid #c6f6d5;
+			"
+		>
+			<span style="font-size: 2.5rem; color: #38a169">✓</span>
+		</div>
+
+		<h2
+			style="
+				margin: 0 0 8px 0;
+				color: #1a202c;
+				font-size: 1.75rem;
+				font-weight: 800;
+				letter-spacing: -0.5px;
+			"
+		>
+			Transaction Complete
+		</h2>
+		<p
+			style="
+				color: #718096;
+				margin: 0 0 32px 0;
+				font-size: 0.95rem;
+				line-height: 1.5;
+			"
+		>
+			The checkout pipeline executed successfully. <br />
+			All inventory metrics have been saved to local ledger storage
+			records.
+		</p>
+
+		<hr
+			style="
+				border: 0;
+				border-top: 1px dashed #e2e8f0;
+				margin-bottom: 32px;
+			"
+		/>
+
+		<div
+			style="
+				background: #f8fafc;
+				border-radius: 12px;
+				padding: 20px;
+				border: 1px solid #edf2f7;
+				margin-bottom: 32px;
+			"
+		>
+			<p
+				style="
+					margin: 0;
+					font-size: 1rem;
+					color: #2d3748;
+					font-weight: 600;
+					line-height: 1.4;
+				"
+			>
+				Does the customer or operator have any additional transactions
+				to process?
+			</p>
+		</div>
+
+		<div style="display: flex; gap: 16px; justify-content: center">
+			<a
+				href="/terminal"
+				style="
+					flex: 1;
+					background: linear-gradient(
+						135deg,
+						rgb(26, 32, 44) 0%,
+						rgb(0, 127, 167) 100%
+					);
+					color: #ffffff;
+					text-decoration: none;
+					padding: 14px 20px;
+					border-radius: 8px;
+					font-weight: 600;
+					font-size: 0.95rem;
+					box-shadow: 0 4px 14px rgba(49, 130, 206, 0.3);
+					transition:
+						transform 0.15s ease,
+						opacity 0.15s ease;
+					text-align: center;
+				"
+				onmouseover="this.style.opacity = '0.95'"
+				onmouseout="this.style.opacity = '1'"
+			>
+				Yes, New Transaction
+			</a>
+
+			<a
+				href="/logout"
+				style="
+					flex: 1;
+					background: #ffffff;
+					color: #4a5568;
+					text-decoration: none;
+					padding: 14px 20px;
+					border-radius: 8px;
+					font-weight: 600;
+					font-size: 0.95rem;
+					border: 1px solid #cbd5e0;
+					transition: background 0.15s ease;
+					text-align: center;
+				"
+				onmouseover="this.style.background = '#f7fafc'"
+				onmouseout="this.style.background = '#ffffff'"
+			>
+				No, Exit & Log Out
+			</a>
+		</div>
+
+		<div style="margin-top: 28px; text-align: center">
+			<a
+				href="/sales"
+				style="
+					color: #a0aec0;
+					text-decoration: none;
+					font-size: 0.85rem;
+					font-weight: 500;
+					transition: color 0.15s ease;
+				"
+				onmouseover="this.style.color = '#718096'"
+				onmouseout="this.style.color = '#a0aec0'"
+			>
+				View Archived Sales Invoices ↗
+			</a>
+		</div>
+	</div>
+</div>
+
+<%- include('partials/footer') %>
